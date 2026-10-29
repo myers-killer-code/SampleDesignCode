@@ -90,4 +90,12 @@ document.querySelectorAll(".filter").forEach((btn) => {
   });
 });
 
+// Discourage casual saving of artwork (right-click and drag)
+document.addEventListener("contextmenu", (e) => {
+  if (e.target.closest("img, video")) e.preventDefault();
+});
+document.addEventListener("dragstart", (e) => {
+  if (e.target.closest("img, video")) e.preventDefault();
+});
+
 render();
