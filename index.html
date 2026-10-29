@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio — Art &amp; Stop Motion</title>
+  <meta name="description" content="A small gallery of artwork and stop motion films.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">Studio<span>.</span></a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">Selected work · 2026</p>
+      <h1>Small worlds,<br><em>made by hand.</em></h1>
+      <p class="lede">Paintings, objects, and stop motion films — built frame by frame.</p>
+    </section>
+
+    <section id="work" class="work">
+      <div class="work-head">
+        <h2>Work</h2>
+        <div class="filters" role="tablist">
+          <button class="filter is-active" data-filter="all">All</button>
+          <button class="filter" data-filter="image">Art</button>
+          <button class="filter" data-filter="video">Stop motion</button>
+        </div>
+      </div>
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p>A short note about you and your process goes here. Two or three sentences is plenty — what you make, what you make it with, and why.</p>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <a href="mailto:hello@example.com">hello@example.com</a>
+    <span>© <span id="year"></span> Studio</span>
+  </footer>
+
+  <dialog id="lightbox" class="lightbox">
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <div class="lightbox-media"></div>
+    <p class="lightbox-caption"></p>
+  </dialog>
+
+  <script src="gallery.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
