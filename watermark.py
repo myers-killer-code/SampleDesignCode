@@ -2,13 +2,13 @@
 
 Put full-size originals in /originals (kept off GitHub), then run:
     python3 watermark.py
-Each image is resized for the web, stamped "© Brie Myers", and saved to /images.
+Each image is resized for the web, stamped "© Brianna Myers", and saved to /images.
 Needs Pillow:  pip3 install pillow
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
-TEXT = "© Brie Myers"
+TEXT = "© Brianna Myers"
 MAX_SIZE = 1200  # longest side, in pixels
 FONT = "/System/Library/Fonts/Supplemental/Georgia Italic.ttf"
 
@@ -33,8 +33,8 @@ for src in sorted(src_dir.iterdir()):
     img = Image.alpha_composite(img.convert("RGBA"), layer).convert("RGB")
 
     exif = Image.Exif()
-    exif[0x013B] = "Brie Myers"                                  # Artist
-    exif[0x8298] = "Copyright Brie Myers. All rights reserved."  # Copyright (EXIF is ASCII-only, so no ©)
+    exif[0x013B] = "Brianna Myers"                                  # Artist
+    exif[0x8298] = "Copyright Brianna Myers. All rights reserved."  # Copyright (EXIF is ASCII-only, so no ©)
     out = out_dir / (src.stem + ".jpeg")
     img.save(out, "JPEG", quality=85, exif=exif)
     print(f"{src.name} -> {out.relative_to(root)}")
