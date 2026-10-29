@@ -34,7 +34,7 @@ for src in sorted(src_dir.iterdir()):
 
     exif = Image.Exif()
     exif[0x013B] = "Brie Myers"                                  # Artist
-    exif[0x8298] = "© Brie Myers. All rights reserved."          # Copyright
+    exif[0x8298] = "Copyright Brie Myers. All rights reserved."  # Copyright (EXIF is ASCII-only, so no ©)
     out = out_dir / (src.stem + ".jpeg")
     img.save(out, "JPEG", quality=85, exif=exif)
     print(f"{src.name} -> {out.relative_to(root)}")
