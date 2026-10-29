@@ -10,9 +10,6 @@
 const GALLERY = [
   { type: "video", title: "Stop Motion No. 1", year: 2026, medium: "Stop motion",            src: "", size: "wide" },
   { type: "image", title: "Untitled Portrait", year: 2023, medium: "Colored pencil",         src: "images/Photo_2023-11-04_130354.jpeg", size: "tall" },
-  { type: "image", title: "Apple Station",     year: 2024, medium: "Digital",                src: "images/IMG_0387.jpeg" },
-  { type: "image", title: "Trooper in White",  year: 2024, medium: "Digital",                src: "images/IMG_0381.jpeg", size: "wide" },
   { type: "image", title: "Stacked",           year: 2023, medium: "Photograph",             src: "images/IMG_2386.jpeg", size: "tall" },
-  { type: "image", title: "Pulp Galaxy",       year: 2024, medium: "Digital",                src: "images/IMG_0282.jpeg", size: "wide" },
   { type: "video", title: "Stop Motion No. 2", year: 2026, medium: "Stop motion",            src: "" },
 ];
