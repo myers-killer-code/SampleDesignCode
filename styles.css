@@ -191,7 +191,17 @@ figcaption {
   border-top: 1px solid var(--line);
   margin-top: 40px;
 }
-.about p { font-family: var(--serif); font-weight: 300; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.4; margin: 0; }
+.about { align-items: center; gap: clamp(24px, 5vw, 72px); }
+.portrait {
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  display: block;
+}
+.about-name { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: clamp(36px, 5vw, 64px); line-height: 1; margin: 16px 0 24px; }
+.about-bio { font-family: var(--serif); font-weight: 300; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.4; margin: 0; max-width: 640px; }
 
 /* Footer */
 .site-footer {
@@ -249,7 +259,10 @@ figcaption {
 
 @media (max-width: 640px) {
   nav { gap: 18px; }
-  .gallery { grid-template-columns: 1fr; grid-auto-rows: 260px; }
+  .gallery { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .frame { flex: none; }
+  .frame img, .frame video { height: auto; }
+  .frame .placeholder { aspect-ratio: 16 / 10; height: auto; }
   .tile.wide { grid-column: auto; }
   .tile.tall { grid-row: span 1; }
   .about { grid-template-columns: 1fr; }
