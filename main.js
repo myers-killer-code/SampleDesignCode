@@ -5,10 +5,13 @@ const lightboxCaption = lightbox.querySelector(".lightbox-caption");
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
+const isVideo = (item) => item.type === "video" || item.type === "motion";
+const BADGES = { video: "Film", motion: "Motion" };
+
 function placeholder(item) {
   const el = document.createElement("div");
   el.className = "placeholder";
-  el.innerHTML = item.type === "video"
+  el.innerHTML = isVideo(item)
     ? `<span class="ph-icon">▶</span><span>Stop motion placeholder</span>`
     : `<span class="ph-icon">◐</span><span>Artwork placeholder</span>`;
   return el;
@@ -16,9 +19,10 @@ function placeholder(item) {
 
 function media(item, { controls = false } = {}) {
   if (!item.src) return placeholder(item);
-  if (item.type === "video") {
+  if (isVideo(item)) {
     const v = document.createElement("video");
-    v.src = item.src;
+    // Tiles open on the thumb frame; the lightbox plays from the start
+    v.src = item.thumb && !controls ? `${item.src}#t=${item.thumb}` : item.src;
     if (item.poster) v.poster = item.poster;
     v.muted = !controls;
     v.loop = true;
@@ -46,7 +50,7 @@ function render() {
     const frame = document.createElement("div");
     frame.className = "frame";
     frame.appendChild(media(item));
-    if (item.type === "video") frame.insertAdjacentHTML("beforeend", `<span class="badge">Film</span>`);
+    if (BADGES[item.type]) frame.insertAdjacentHTML("beforeend", `<span class="badge">${BADGES[item.type]}</span>`);
 
     tile.appendChild(frame);
     tile.insertAdjacentHTML("beforeend", `
@@ -55,11 +59,11 @@ function render() {
         <span class="meta">${item.medium} · ${item.year}</span>
       </figcaption>`);
 
-    // Stop motion previews play on hover
+    // Video previews play on hover
     const video = frame.querySelector("video");
     if (video) {
       tile.addEventListener("mouseenter", () => video.play());
-      tile.addEventListener("mouseleave", () => { video.pause(); video.currentTime = 0; });
+      tile.addEventListener("mouseleave", () => { video.pause(); video.currentTime = item.thumb || 0; });
     }
 
     const open = () => openLightbox(item);

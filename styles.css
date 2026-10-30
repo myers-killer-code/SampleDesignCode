@@ -95,7 +95,7 @@ h1 em { font-style: italic; color: var(--accent); }
   border-bottom: 1px solid var(--line);
 }
 h2 { font-family: var(--serif); font-weight: 400; font-size: 32px; margin: 0; }
-.filters { display: flex; gap: 8px; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
 .filter {
   font: 500 13px var(--sans);
   color: var(--muted);

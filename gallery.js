@@ -2,12 +2,14 @@
 //   1. Drop the file into /images or /videos
 //   2. Add an entry below (newest first)
 //
-// type:  "image" or "video"
+// type:  "image", "video" (stop motion), or "motion" (motion graphics)
 // src:   path to the file — leave as "" to show a placeholder
 // poster (videos only, optional): a still image shown before playback
+// thumb  (videos only, optional): seconds into the video to show as the preview frame
 // size (optional): "wide" or "tall" to make a tile span more space
 
 const GALLERY = [
+  { type: "motion", title: "Text Motion Graphics", year: 2026, medium: "After Effects",      src: "videos/Myers_Brianna_TextMotionGraphics.MP4", size: "wide", thumb: 4 },
   { type: "video", title: "Stop Motion No. 1", year: 2026, medium: "Stop motion",            src: "", size: "wide" },
   { type: "image", title: "Untitled Portrait", year: 2023, medium: "Colored pencil",         src: "images/Photo_2023-11-04_130354.jpeg", size: "tall" },
   { type: "image", title: "Stacked",           year: 2023, medium: "Photograph",             src: "images/IMG_2386.jpeg", size: "tall" },
